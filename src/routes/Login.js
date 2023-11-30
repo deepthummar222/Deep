@@ -8,7 +8,6 @@ function LoginPage() {
   const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
   const apiUrl = process.env.REACT_APP_API_URL_1;
-  console.log("apiUrl:::::::",apiUrl)
   const navigate = useNavigate();
 
   useEffect(() => {
