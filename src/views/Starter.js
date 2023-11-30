@@ -11,7 +11,6 @@ const Starter = () => {
   const [offlineUsers, setOfflineUsers] = useState([]);
   const [error, setError] = useState(null);
   const apiUrl = process.env.REACT_APP_API_URL_1;
-  console.log("apiUrl:::::::",apiUrl)
   let navigate = useNavigate();
 
   useEffect(() => {
