@@ -8,7 +8,6 @@ const Latest = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const apiUrl = process.env.REACT_APP_API_URL_1;
-  console.log("apiUrl:::::::",apiUrl)
     useEffect(() => {
       async function fetchUsers() {
         try {
