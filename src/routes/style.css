@@ -16,6 +16,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
   
   /* Style for the login header */
@@ -48,5 +49,10 @@
   /* Style for the login button on hover */
   .loginButton:hover {
     background-color: #0056b3; /* Set the hover color you prefer */
+  }
+  .showicone{
+    position: absolute;
+    top: 55%;
+    left: 85%;
   }
   
