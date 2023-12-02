@@ -33,6 +33,11 @@ const navigation = [
     href: "/AddProfilepic",
     icon: "bi bi-person-plus-fill",
   },
+  {
+    title: "Coin transaction",
+    href: "/coinData",
+    icon: "bi bi-person-plus-fill",
+  },
 ];
 
 const Sidebar = () => {

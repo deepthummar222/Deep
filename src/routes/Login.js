@@ -87,7 +87,11 @@ function LoginPage() {
             type="text"
             id="mobileNumber"
             value={mobileNumber}
-            onChange={(e) => setMobileNumber(e.target.value)}
+            onChange={(e) =>{
+              const enteredValue = e.target.value;
+              const onlyNumbers = enteredValue.replace(/\D/g, '');
+              setMobileNumber(onlyNumbers);
+            }}
             required
             className="loginInput"
           />

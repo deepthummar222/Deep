@@ -12,7 +12,7 @@ const Online = lazy(() => import("../views/ui/Online.js"))
 const Login = lazy(() => import("./Login.js"))
 const AddEmojis = lazy(() => import("../components/dashboard/AddEmojis.js"))
 const AddProfilepic = lazy(() => import("../components/dashboard/AddProfilepic.js"))
-
+const CoinData = lazy(() => import("../views/ui/CoinTransactiondata.js"))
 
 /*****Routes******/
 
@@ -33,6 +33,7 @@ const ThemeRoutes = [
       { path: "/login", element: <Login /> },
       { path: "/Addemojis", element: <AddEmojis /> },
       { path: "/AddProfilepic", element: <AddProfilepic /> },
+      { path: "/coinData", element: <CoinData /> },
     ],
   },
 ];
