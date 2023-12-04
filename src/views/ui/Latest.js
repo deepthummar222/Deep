@@ -12,7 +12,6 @@ const Latest = ( ) => {
     async function fetchUsers() {
       try {
         const response = await fetch(`${apiUrl}/api/v1/user/user`);
-        // console.log(response)
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }

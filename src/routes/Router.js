@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import { Navigate } from "react-router-dom";
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
@@ -14,18 +13,17 @@ const AddEmojis = lazy(() => import("../components/dashboard/AddEmojis.js"))
 const AddProfilepic = lazy(() => import("../components/dashboard/AddProfilepic.js"))
 const CoinData = lazy(() => import("../views/ui/CoinTransactiondata.js"))
 
-/*****Routes******/
+
 
 const ThemeRoutes = [
   {
-    path: "/login", // Define a route for the login page
-    element: <Login />, // Use the Login component as the element
+    path: "/login", 
+    element: <Login />,
   },
   {
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "/", element: <Navigate to="/login" /> },
       { path: "/starter", element: <Starter /> },
       { path: "/favimg", element: <Fav /> },
       { path: "/data", element: <Tables /> },

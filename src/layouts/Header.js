@@ -1,5 +1,5 @@
 import React from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import {
@@ -27,18 +27,22 @@ const Header = (props) => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
- 
 
-  const navi =useNavigate();
-  const Logout=()=>{
+
+  const navi = useNavigate();
+  const Logout = () => {
     sessionStorage.removeItem('token')
+    const token =localStorage.getItem('token')
+    console.log("token",token)
     toast.warning('Logout SuccessFully', {
       position: toast.POSITION.TOP_RIGHT
-  });
-    setTimeout(()=>{
+    });
+    setTimeout(() => {
       navi('/login')
-    },3000)
-    
+    }, 3000)
+    if(!token){
+      window.location.reload()
+    }
   }
   return (
     <Navbar color="white" light expand="md" className="fix-header">
@@ -73,7 +77,7 @@ const Header = (props) => {
         </Button>
       </div>
 
-      <Collapse navbar isOpen={isOpen} style={{alignItems:"baseline"}}>
+      <Collapse navbar isOpen={isOpen} style={{ alignItems: "baseline" }}>
         <div className="me-auto" navbar>
           <p>Welcome the Admin Page!.....</p>
         </div>
@@ -90,11 +94,11 @@ const Header = (props) => {
             <DropdownItem>My Account</DropdownItem>
             <DropdownItem>Edit Profile</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem onClick={()=>Logout()}>Logout</DropdownItem>
+            <DropdownItem onClick={() => Logout()}>Logout</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>
-     
+
     </Navbar>
   );
 };

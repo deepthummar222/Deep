@@ -17,6 +17,7 @@ const Starter = () => {
     let sessionData = sessionStorage.getItem("token");
     if (sessionData === null) {
       navigate('/login');
+      window.location.reload();
     }
   }, [navigate]);
 

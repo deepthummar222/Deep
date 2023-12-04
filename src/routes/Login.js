@@ -13,12 +13,23 @@ function LoginPage() {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  const pathdata = localStorage.getItem("data")
+  const parsedData = JSON.parse(pathdata);
+
+
+
 
 
   useEffect(() => {
     let sessionData = sessionStorage.getItem('token');
     if (sessionData !== null) {
       navigate('/starter');
+      if (parsedData.to == parsedData.from) {
+      }
+      else {
+        window.location.reload()
+        console.log("reloaddata")
+      }
     }
   }, []);
 
@@ -56,6 +67,7 @@ function LoginPage() {
 
           setTimeout(() => {
             navigate('/starter');
+            window.location.reload();
           }, 3000);
         } else {
           toast.error('Invalid response from the server', {
@@ -87,7 +99,7 @@ function LoginPage() {
             type="text"
             id="mobileNumber"
             value={mobileNumber}
-            onChange={(e) =>{
+            onChange={(e) => {
               const enteredValue = e.target.value;
               const onlyNumbers = enteredValue.replace(/\D/g, '');
               setMobileNumber(onlyNumbers);

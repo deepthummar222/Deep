@@ -11,8 +11,10 @@ const FullLayout = () => {
     let sessionData = sessionStorage.getItem("token");
     if(sessionData == null){
       navigate('/login')
+      window.location.reload();
     }
   })
+ 
 
   return (
     <main>

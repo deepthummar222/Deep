@@ -1,5 +1,6 @@
 import { Button, Nav, NavItem } from "reactstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, json, useHref, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 const navigation = [
   {
@@ -12,7 +13,7 @@ const navigation = [
     href: "/data",
     icon: "bi bi-person-workspace ",
   },
-  
+
   {
     title: "Online User",
     href: "/online",
@@ -38,14 +39,32 @@ const navigation = [
     href: "/coinData",
     icon: "bi bi-person-plus-fill",
   },
+
 ];
 
 const Sidebar = () => {
   const showMobilemenu = () => {
-    document.getElementById("sidebarArea").classList.toggle("showSidebar");
+    document.getElementById("sidebarArea").classList.toggle('showSidebar');
   };
   let location = useLocation();
+  const [route, setRoute] = useState({ 
+    to: location.pathname,
+    from: location.pathname 
+  });
+  localStorage.setItem("data",JSON.stringify(route))
+  const pathdata= localStorage.getItem("data")
+  const parsedData = JSON.parse(pathdata);
+  console.log(parsedData.from)
+  useEffect(()=> {
+    setRoute((prev)=> ({to: location.pathname, from: prev.to}) )
+  }, [location]);
 
+      if(parsedData.to == parsedData.from){
+      }
+      else{
+        window.location.reload()
+        console.log("reloaddata")
+      }
   return (
     <div className="bg-dark">
       <div className="d-flex">
@@ -59,22 +78,22 @@ const Sidebar = () => {
       </div>
       <div className="p-3 mt-2">
         <Nav vertical className="sidebarNav">
-          {navigation.map((navi, index) => (
+          {navigation.map((navigation, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link
-                to={navi.href}
+                to={navigation.href}
                 className={
-                  location.pathname === navi.href
+                  location.pathname === navigation.href
                     ? "active nav-link py-3"
                     : "nav-link py-3"
                 }
               >
-                <i className={navi.icon}></i>
-                <span className="ms-3 d-inline-block">{navi.title}</span>
+                <i className={navigation.icon}></i>
+                <span className="ms-3 d-inline-block">{navigation.title}</span>
               </Link>
             </NavItem>
           ))}
-          
+
         </Nav>
       </div>
     </div>
